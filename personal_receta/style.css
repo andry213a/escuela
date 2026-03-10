@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #fff3dc, #ffe0b3);
+    margin: 0;
+    padding: 40px;
+    color: #3a2a1a;
+}
+
+article {
+    max-width: 800px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+audio {
+    display: block;
+    margin: 20px auto;
+}
+
+h3 {
+    margin-top: 30px;
+    padding-left: 10px;
+    border-left: 5px solid #c97c2d;
+    color: #8b4513;
+}
+
+p {
+    line-height: 1.7;
+}
