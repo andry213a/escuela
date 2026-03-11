@@ -24,9 +24,12 @@
 
     <section class="card">
       <div class="label">Contacto</div>
-      <h1>Formulario simple</h1>
+      <h1>Formulario</h1>
       <p class="lead">Si tienes dudas o comentarios, escribe un mensaje.</p>
-      <form class="contact-form">
+      <form class="contact-form"
+       action="https://formspree.io/f/xdawgpkl"
+       method="POST"
+      >
         <label>
           Nombre
           <input type="text" name="nombre" placeholder="Tu nombre" required>
@@ -41,13 +44,6 @@
         </label>
         <button type="submit">Enviar</button>
       </form>
-    </section>
-
-    <section class="card">
-      <h2>Nota</h2>
-      <p>
-        Este formulario es de ejemplo y no envia datos a un servidor.
-      </p>
     </section>
 
     <div class="footer">
