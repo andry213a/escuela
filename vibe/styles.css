@@ -1,0 +1,331 @@
+/* 
+///////////////////////////////////////////
+aqui splicando lo mismo que estoy explicando
+////////////////////////////////////////////
+*/
+
+:root{
+  --bg: #f5f2ee;
+  --bg-alt: #efe8e1;
+  --panel: #ffffff;
+  --panel-strong: #1c1b1a;
+  --text: #151413;
+  --muted: #5c5a57;
+  --primary: #1f6feb;
+  --primary-dark: #0b49b3;
+  --accent: #ff8f66;
+  --focus: #ffbf47;
+  --radius: 14px;
+  --max-width: 1060px;
+  --gutter: 24px;
+  --shadow: 0 20px 50px rgba(20, 16, 12, 0.12);
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4", "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body{
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 10% 0%, #ffe6d9 0%, rgba(255, 230, 217, 0) 60%),
+    radial-gradient(900px 600px at 90% 10%, #dbe7ff 0%, rgba(219, 231, 255, 0) 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 32px var(--gutter) 60px;
+}
+
+.page{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.site-header, .site-main, .site-footer{
+  width: 100%;
+}
+
+.skip-link{
+  position: absolute;
+  left: 12px;
+  top: -40px;
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 999;
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 3px solid var(--focus);
+}
+
+.header-inner{
+  padding: 28px 26px;
+  margin-bottom: 28px;
+  border-radius: 20px;
+  background: var(--panel);
+  border: 1px solid #e6dcd3;
+  box-shadow: var(--shadow);
+}
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f1e2d6;
+  color: #5f3d2a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 14px 0;
+}
+.site-header h1{
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: -0.02em;
+}
+.subtitle{
+  margin: 8px 0 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  font-family: var(--font-serif);
+}
+
+.site-main{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.welcome{
+  display: grid;
+  gap: 20px;
+  background: var(--panel);
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid #e6dcd3;
+  box-shadow: var(--shadow);
+}
+.welcome h2{
+  margin-top: 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+}
+.lead{
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: #2b2927;
+  margin: 0 0 18px;
+}
+.hero-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.welcome-card{
+  background: #12110f;
+  color: #f8f5f2;
+  padding: 20px;
+  border-radius: 14px;
+}
+.welcome-card h3{
+  margin-top: 0;
+}
+.stats{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+.stat-value{
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+}
+.stat-label{
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #d0c4ba;
+}
+
+.principles{
+  background: var(--panel);
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  border: 1px solid #e6dcd3;
+}
+.principles h3{
+  margin-top: 0;
+}
+.principles-list{
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 12px;
+}
+.principles-list li{
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f7f1eb;
+  border: 1px solid #eadfd6;
+}
+
+.image-section{
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid #e6dcd3;
+  box-shadow: var(--shadow);
+}
+.section-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.section-head p{
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-serif);
+}
+
+.image-frame{
+  margin: 0;
+}
+.image-section img{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  border: 1px solid #ece0d6;
+}
+.image-section figcaption{
+  margin: 10px 0 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.contact{
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid #e6dcd3;
+}
+form{
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+label{
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+input, textarea{
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #d9cdc3;
+  background: #fff;
+  color: var(--text);
+  width: 100%;
+  min-width: 0;
+}
+input::placeholder, textarea::placeholder {
+  color: #9a8f86;
+}
+input:focus, textarea:focus{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(31, 111, 235, 0.15);
+  border-color: var(--primary);
+}
+.buttons{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+.btn-primary{
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-primary:hover{ background: var(--primary-dark); }
+.btn-secondary{
+  background: transparent;
+  border: 1px solid #cfc1b6;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-footer{
+  margin-top: 26px;
+  padding: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-serif);
+}
+.site-footer a{
+  color: inherit;
+}
+
+:focus-visible{
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.visually-hidden,
+.sr-only{
+  position:absolute !important;
+  height:1px; width:1px;
+  overflow:hidden; clip:rect(1px,1px,1px,1px);
+  white-space:nowrap; border:0; padding:0; margin:-1px;
+}
+
+@media (min-width: 900px) {
+  .welcome{
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+  }
+  .site-main{
+    grid-template-columns: 2fr 1fr;
+  }
+  .principles{
+    grid-column: 1 / span 1;
+  }
+  .image-section{
+    grid-column: 2 / span 1;
+  }
+  .contact{
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 680px) {
+  .section-head{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
