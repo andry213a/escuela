@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Efecto Barnum · Contacto</title>
+  <meta name="description" content="Formulario de contacto para dudas o comentarios sobre el efecto Barnum." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <main id="contenido" class="page" role="main">
+    <nav class="topbar" aria-label="Navegacion principal">
+      <a class="brand" href="index.html">Efecto Barnum</a>
+      <div class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="origen.html">Origen</a>
+        <a href="funciona.html">Por que funciona</a>
+        <a href="detectarlo.html">Como detectarlo</a>
+        <a href="ejemplo.html">Ejemplo</a>
+        <a class="active" href="contacto.html" aria-current="page">Contacto</a>
+      </div>
+    </nav>
+
+    <section class="card">
+      <div class="label">Contacto</div>
+      <h1>Formulario simple</h1>
+      <p class="lead">Si tienes dudas o comentarios, escribe un mensaje.</p>
+      <form class="contact-form">
+        <label>
+          Nombre
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+        </label>
+        <label>
+          Correo
+          <input type="email" name="correo" placeholder="tu@email.com" required>
+        </label>
+        <label>
+          Mensaje
+          <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje" required></textarea>
+        </label>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Nota</h2>
+      <p>
+        Este formulario es de ejemplo y no envia datos a un servidor.
+      </p>
+    </section>
+
+    <div class="footer">
+      <span>Pagina educativa</span>
+      <span>Actualizado: 8 de marzo de 2026</span>
+    </div>
+  </main>
+</body>
+</html>
