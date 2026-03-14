@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Sitio web usable sobre Minecraft: guías, recursos y contacto."
+    />
+    <title>Minecraft: Portal Usable</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">⛏</span>
+          <div>
+            <p class="eyebrow">Portal Usable</p>
+            <h1>Minecraft</h1>
+          </div>
+        </div>
+        <nav aria-label="Navegación principal">
+          <ul class="nav-list">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section id="inicio" class="hero">
+        <div class="container hero-inner">
+          <div>
+            <p class="kicker">Diseño de Sitios Web Usables</p>
+            <h2>Bienvenido al portal de Minecraft</h2>
+            <p>
+              Aquí encontrarás recursos claros, navegación simple y una
+              experiencia accesible para aprender, crear y compartir dentro del
+              universo de Minecraft.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#servicios">Ver servicios</a>
+              <a class="btn ghost" href="#contacto">Contactar</a>
+            </div>
+          </div>
+          <div class="hero-card" role="img" aria-label="Ilustración abstracta de bloques">
+            <div class="block-grid">
+              <span class="block grass"></span>
+              <span class="block dirt"></span>
+              <span class="block stone"></span>
+              <span class="block wood"></span>
+              <span class="block water"></span>
+              <span class="block sand"></span>
+            </div>
+            <p class="hero-note">Contenido claro, rápido y compatible.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios" class="section">
+        <div class="container">
+          <h2>Servicios</h2>
+          <p class="section-lead">
+            Todo organizado para que encuentres lo que necesitas en pocos
+            clics.
+          </p>
+          <div class="cards">
+            <article class="card">
+              <h3>Guías Rápidas</h3>
+              <p>Pasos simples para sobrevivir, construir y progresar.</p>
+            </article>
+            <article class="card">
+              <h3>Recursos Visuales</h3>
+              <p>Listas de materiales, crafteo y biomas explicados.</p>
+            </article>
+            <article class="card">
+              <h3>Servidor Seguro</h3>
+              <p>Buenas prácticas y reglas claras para jugar en comunidad.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="section alt">
+        <div class="container contact-grid">
+          <div>
+            <h2>Contacto</h2>
+            <p class="section-lead">
+              Déjanos tus datos y te respondemos con sugerencias o recursos.
+            </p>
+            <ul class="contact-list">
+              <li>Respuesta rápida y clara.</li>
+              <li>Contenido accesible y fácil de leer.</li>
+              <li>Compatibilidad móvil garantizada.</li>
+            </ul>
+          </div>
+          <form class="contact-form"  action="https://formspree.io/f/xzdjvwgb" method="POST">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre"
+              required
+            />
+
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="tucorreo@email.com"
+              required
+            />
+
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              placeholder="Escribe tu consulta o comentario"
+              rows="4"
+              required
+            ></textarea>
+
+            <button type="submit" class="btn primary">Enviar</button>
+            <p class="form-note">Al enviar, aceptas recibir una respuesta.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Portal Usable de Minecraft</p>
+        <p>Diseño claro • Navegación simple • Accesibilidad</p>
+      </div>
+    </footer>
+  </body>
+</html>
