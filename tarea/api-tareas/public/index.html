@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tareas - DHTML</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#121823;
+      --panel-2:#161f2d;
+      --text:#e8eef7;
+      --muted:#9db1cc;
+      --accent:#47e0b3;
+      --accent-2:#2a8bff;
+      --danger:#ff6b6b;
+      --shadow:0 20px 45px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Space Grotesk", "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 400px at 10% -10%, #1b2440 0%, transparent 60%),
+        radial-gradient(900px 400px at 100% 0%, #0e2d36 0%, transparent 55%),
+        linear-gradient(180deg, #0b0f14 0%, #0b111a 100%);
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      padding:48px 16px;
+    }
+    .app{
+      width:min(980px, 100%);
+      background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px 28px 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .app::after{
+      content:"";
+      position:absolute;
+      inset:-40% -20% auto auto;
+      width:420px;height:420px;
+      background:radial-gradient(circle at 30% 30%, rgba(71,224,179,.25), transparent 60%);
+      pointer-events:none;
+      filter:blur(4px);
+    }
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      padding-bottom:18px;
+      margin-bottom:18px;
+    }
+    h1{
+      font-size:28px;
+      letter-spacing:.5px;
+      margin:0;
+    }
+    .inputs{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+      width:100%;
+      max-width:600px;
+    }
+    input[type="text"]{
+      flex:1 1 280px;
+      min-width:220px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:#0e1420;
+      color:var(--text);
+      outline:none;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
+      transition:border-color .2s, box-shadow .2s, background .2s;
+    }
+    input[type="text"]::placeholder{color:#91a5c0}
+    input[type="text"]:focus{
+      border-color:rgba(71,224,179,.6);
+      box-shadow:0 0 0 3px rgba(71,224,179,.15);
+      background:
+        radial-gradient(160px 160px at 10% 50%, rgba(71,224,179,.2), transparent 60%),
+        linear-gradient(180deg, #101827 0%, #0b111c 100%);
+    }
+    select{
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:#0e1420;
+      color:var(--text);
+      outline:none;
+    }
+    .status-select{
+      padding:6px 8px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.12);
+      background:#0e1420;
+      color:var(--text);
+      font-size:12px;
+    }
+    button{
+      padding:11px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(135deg, var(--accent) 0%, #6cf6d2 100%);
+      color:#0b0f14;
+      font-weight:600;
+      cursor:pointer;
+      transition:transform .15s ease, box-shadow .2s ease, filter .2s;
+      box-shadow:0 8px 20px rgba(71,224,179,.25);
+    }
+    button:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    button:active{transform:translateY(0)}
+    .ghost{
+      background:transparent;
+      color:var(--text);
+      box-shadow:none;
+    }
+    .danger{
+      background:linear-gradient(135deg, var(--danger) 0%, #ff9a9a 100%);
+      color:#2b0a0a;
+      box-shadow:0 8px 20px rgba(255,107,107,.22);
+    }
+    h2{
+      margin:10px 0 12px;
+      font-size:16px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+    }
+    ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    li{
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(12,18,28,.65);
+      border-radius:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      backdrop-filter:blur(4px);
+    }
+    .item-actions{display:flex;gap:8px}
+    .item-actions button{
+      padding:8px 10px;
+      border-radius:10px;
+      font-size:14px;
+    }
+    .chip{
+      font-size:12px;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .chip.pendiente{color:#ffd66b;border-color:rgba(255,214,107,.35)}
+    .chip.en_progreso{color:#6bc1ff;border-color:rgba(107,193,255,.35)}
+    .chip.hecha{color:#6bffb6;border-color:rgba(107,255,182,.35)}
+    small{color:var(--muted)}
+    @media (max-width:720px){
+      header{align-items:flex-start}
+      .inputs{max-width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+  <header>
+    <h1>Tareas</h1>
+    <div class="inputs">
+      <input id="title" placeholder="Nueva tarea..." />
+      <select id="status">
+        <option value="pendiente">Pendiente</option>
+        <option value="en_progreso">En progreso</option>
+        <option value="hecha">Hecha</option>
+      </select>
+      <button id="add">A&ntilde;adir</button>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Lista</h2>
+      <ul id="lista"></ul>
+    </section>
+  </main>
+  </div>
+
+  <script>
+    const API = '/tareas';
+
+    async function fetchTareas() {
+      try {
+        const r = await fetch(API);
+        const tareas = await r.json();
+        const ul = document.getElementById('lista');
+        ul.innerHTML = '';
+        tareas.forEach(t => {
+          const li = document.createElement('li');
+          const status = t.status || 'pendiente';
+          li.innerHTML = `<span>${escapeHtml(t.title)}</span>
+            <select class="status-select" onchange="cambiarEstado(${t.id}, this.value)">
+              ${statusOptions(status)}
+            </select>
+            <span class="chip ${status}">${formatStatus(status)}</span>
+            <span class="item-actions">
+              <button class="ghost" onclick="editar(${t.id})">&#9998;</button>
+              <button class="danger" onclick="eliminar(${t.id})">&#128465;</button>
+            </span>`;
+          ul.appendChild(li);
+        });
+      } catch (err) {
+        alert('Error obteniendo tareas: ' + err.message);
+      }
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+
+    function formatStatus(status) {
+      if (status === 'en_progreso') return 'En progreso';
+      if (status === 'hecha') return 'Hecha';
+      return 'Pendiente';
+    }
+
+    function statusOptions(current) {
+      const opts = [
+        { v: 'pendiente', t: 'Pendiente' },
+        { v: 'en_progreso', t: 'En progreso' },
+        { v: 'hecha', t: 'Hecha' }
+      ];
+      return opts.map(o => `<option value="${o.v}" ${o.v === current ? 'selected' : ''}>${o.t}</option>`).join('');
+    }
+
+    document.getElementById('add').addEventListener('click', async () => {
+      const titleEl = document.getElementById('title');
+      const statusEl = document.getElementById('status');
+      const title = titleEl.value.trim();
+      if (!title) return alert('Escribe algo.');
+      try {
+        const r = await fetch(API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, status: statusEl.value })
+        });
+        if (!r.ok) {
+          const err = await r.json();
+          throw new Error(err.error || JSON.stringify(err));
+        }
+        titleEl.value = '';
+        fetchTareas();
+      } catch (err) {
+        alert('Error creando tarea: ' + err.message);
+      }
+    });
+
+    async function eliminar(id) {
+      if (!confirm('Eliminar tarea?')) return;
+      await fetch(API + '/' + id, { method: 'DELETE' });
+      fetchTareas();
+    }
+
+    async function editar(id) {
+      const nuevo = prompt('Nuevo t\u00edtulo:');
+      if (nuevo === null) return;
+      const title = nuevo.trim();
+      if (!title) return alert('T\u00edtulo vac\u00edo.');
+      const r = await fetch(API + '/' + id, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title })
+      });
+      if (!r.ok) {
+        const err = await r.json();
+        return alert('Error: ' + (err.error || JSON.stringify(err)));
+      }
+      fetchTareas();
+    }
+
+    async function cambiarEstado(id, status) {
+      const r = await fetch(API + '/' + id, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status })
+      });
+      if (!r.ok) {
+        const err = await r.json();
+        alert('Error: ' + (err.error || JSON.stringify(err)));
+      }
+      fetchTareas();
+    }
+
+    fetchTareas();
+  </script>
+</body>
+</html>

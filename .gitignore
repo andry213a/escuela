@@ -1,1 +1,4 @@
 web_carpeta/
+tarea/api-tareas/node_module/
+tarea/api-tareas/data/
+tarea/api-tareas/*.log
