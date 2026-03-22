@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tareas - Andry</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+  <header>
+    <h1>Tareas</h1>
+    <div class="inputs">
+      <input id="title" placeholder="Nueva tarea..." />
+      <select id="status">
+        <option value="pendiente">Pendiente</option>
+        <option value="en_progreso">En progreso</option>
+        <option value="hecha">Hecha</option>
+      </select>
+      <button id="add">Añadir</button>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Lista</h2>
+      <ul id="lista"></ul>
+    </section>
+  </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
